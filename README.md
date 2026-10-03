@@ -1,6 +1,4 @@
-# NL-DPE SST-2, Noise-Aware Training, and SuperT Replay
-
-[中文版](README_CN.md)
+# NL-DPE SST-2, Noise-Aware Training, and SuperT Experiments
 
 This repository is based on [Hewlett Packard Labs NL-DPE](https://github.com/HewlettPackard/nl-dpe). This fork adds an end-to-end SST-2 workflow for exporting one TinyBERT attention head, mapping its weights to differential conductances, performing noise-aware fine-tuning, evaluating weight-noise sensitivity, and replaying matrix-multiplication results returned by Super-T inside full-model inference.
 
