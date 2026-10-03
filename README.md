@@ -7,7 +7,25 @@ Some of the changes we introduced:
 - Support for newer Python versions.
 - Code formatting.
 
-This repository does not include the training code - only code to run inference.
+The original top-level workflow provides inference rather than general model training. This checkout also includes a
+dedicated noise-aware fine-tuning entry point,
+[`nl_dpe/train_noise_aware.py`](./nl_dpe/train_noise_aware.py). It reuses the DPE write/read noise model from
+`TCAD`, injects noise into one 26-dimensional attention head, and fine-tunes the full reduced TinyBERT model. For
+example, to train with noise on layer 1, head 12 of the CoLA model and export its three 26x26 matrices:
+
+```shell
+python -m nl_dpe.train_noise_aware \
+  --task-name cola \
+  --model-path models/blushing-dove-984 \
+  --data-dir datasets/glue/CoLA \
+  --layer 1 \
+  --head 12 \
+  --epochs 1 \
+  --output-dir artifacts/cola-noise-aware-layer1-head12
+```
+
+The output `weights` directory contains `WQ.npy`, `WK.npy`, and `WV.npy`, along with CSV copies and an
+`attention_matrices.pkl` file compatible with the model update command described below.
 
 ## Pre-requisites
 

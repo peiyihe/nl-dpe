@@ -1,0 +1,49 @@
+{
+  "task_name": "sst-2",
+  "source_model": "models/wise-tern-584",
+  "layer": 1,
+  "head": 12,
+  "matrix_shape": [
+    26,
+    26
+  ],
+  "noise_model": "TCAD DPENoise (conductance-dependent write and read noise)",
+  "g_min": 0.0,
+  "g_max": 150.0,
+  "std_scale": 1.0,
+  "analog_slicing": false,
+  "epochs": 1,
+  "batch_size": 128,
+  "learning_rate": 5e-05,
+  "weight_norm": 0.01,
+  "seed": 1234,
+  "history": {
+    "device": "cpu",
+    "epochs": [
+      {
+        "epoch": 1,
+        "train_loss": 0.07717423063598616,
+        "noisy_eval": {
+          "acc": 0.9025229357798165,
+          "eval_loss": 0.28231633986745563
+        }
+      }
+    ],
+    "baseline_clean": {
+      "acc": 0.9174311926605505,
+      "eval_loss": 0.23664913645812444
+    },
+    "baseline_noisy": {
+      "acc": 0.9174311926605505,
+      "eval_loss": 0.23664174122469767
+    },
+    "final_clean": {
+      "acc": 0.9025229357798165,
+      "eval_loss": 0.2822707231555666
+    },
+    "final_noisy": {
+      "acc": 0.9025229357798165,
+      "eval_loss": 0.28231633986745563
+    }
+  }
+}

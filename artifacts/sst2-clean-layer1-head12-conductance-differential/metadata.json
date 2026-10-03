@@ -1,0 +1,64 @@
+{
+  "source_weights": "artifacts/sst2-clean-layer1-head12-weights-x-matmul",
+  "source_checkpoint_kind": "clean",
+  "source_matrix_equation": "y = x @ W",
+  "conductance_unit": "uS",
+  "conductance_range_uS": [
+    0.0,
+    150.0
+  ],
+  "mapping": "Gpositive=max(W,0)*scale; Gnegative=max(-W,0)*scale",
+  "reconstruction": "W=(Gpositive-Gnegative)/scale",
+  "differential_layout": "26x52 interleaved output columns: physical column 2*j is left Gpositive; physical column 2*j+1 is right Gnegative",
+  "scaling_scope": "one scalar per 26x26 matrix",
+  "matrices": {
+    "WQ": {
+      "weight_max_abs": 0.502138614654541,
+      "scale_uS_per_weight": 298.7222962392492,
+      "inverse_scale_weight_per_uS": 0.003347590764363607,
+      "gpositive_max_uS": 150.0,
+      "gnegative_max_uS": 143.76621760277894,
+      "reconstruction_max_abs_error": 5.551115123125783e-17,
+      "logical_shape": [
+        26,
+        26
+      ],
+      "physical_interleaved_shape": [
+        26,
+        52
+      ]
+    },
+    "WK": {
+      "weight_max_abs": 0.4964989423751831,
+      "scale_uS_per_weight": 302.11544717984793,
+      "inverse_scale_weight_per_uS": 0.0033099929491678874,
+      "gpositive_max_uS": 130.20526430784633,
+      "gnegative_max_uS": 150.0,
+      "reconstruction_max_abs_error": 2.7755575615628914e-17,
+      "logical_shape": [
+        26,
+        26
+      ],
+      "physical_interleaved_shape": [
+        26,
+        52
+      ]
+    },
+    "WV": {
+      "weight_max_abs": 0.606589138507843,
+      "scale_uS_per_weight": 247.28434862679387,
+      "inverse_scale_weight_per_uS": 0.004043927590052287,
+      "gpositive_max_uS": 150.0,
+      "gnegative_max_uS": 115.51167661749278,
+      "reconstruction_max_abs_error": 5.551115123125783e-17,
+      "logical_shape": [
+        26,
+        26
+      ],
+      "physical_interleaved_shape": [
+        26,
+        52
+      ]
+    }
+  }
+}

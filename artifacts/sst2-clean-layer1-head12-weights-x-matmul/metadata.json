@@ -1,0 +1,27 @@
+{
+  "source_checkpoint": "models/wise-tern-584",
+  "checkpoint_kind": "clean",
+  "layer_1_based": 1,
+  "head_1_based": 12,
+  "pytorch_output_row_slice_0_based": [
+    286,
+    312
+  ],
+  "matrix_shape": [
+    26,
+    26
+  ],
+  "orientation": "x-matmul",
+  "equation_without_bias": "y = x @ W",
+  "bias_included": false,
+  "files": [
+    "WQ.npy",
+    "WK.npy",
+    "WV.npy"
+  ],
+  "max_abs_equivalence_error": {
+    "WQ": 4.76837158203125e-07,
+    "WK": 2.384185791015625e-07,
+    "WV": 4.76837158203125e-07
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "source_checkpoint": "models/wise-tern-584",
+  "checkpoint_kind": "clean",
+  "task": "sst-2",
+  "split": "dev",
+  "layer_1_based": 1,
+  "attention_arch": 2,
+  "input_construction": "reshape hidden [312] to [12,26], then mean across 12 heads",
+  "qkv_share_identical_input": true,
+  "qkv_input_max_abs_difference": 0.0,
+  "examples": 872,
+  "sequence_length": 64,
+  "all_positions_shape": [
+    55808,
+    26
+  ],
+  "valid_tokens_shape": [
+    21943,
+    26
+  ],
+  "dtype": "float32",
+  "row_order_all_positions": "row = example_index * sequence_length + token_position",
+  "row_order_valid_tokens": "example-major, then token-position; see valid_token_index files",
+  "clean_dev_accuracy": 0.9174311926605505
+}

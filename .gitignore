@@ -1,4 +1,8 @@
 mlruns/
 __pycache__/
 
+# Keep downloaded benchmark data out of Git while retaining the directory.
+datasets/*
+!datasets/.gitkeep
+
 *.log

@@ -1,0 +1,56 @@
+{
+  "task": "sst-2",
+  "primary_metric": "accuracy",
+  "layer": 1,
+  "head": 12,
+  "matrix_names": [
+    "query",
+    "key",
+    "value"
+  ],
+  "matrix_shape": [
+    26,
+    26
+  ],
+  "noise_distribution": "additive Gaussian",
+  "noise_definition": "epsilon ~ Normal(0, (noise_percent / 100 * max_abs_clean_matrix)^2); the same standard-normal samples and clean reference scales are used for every checkpoint",
+  "bias_noised": false,
+  "clean_reference_model": "models/wise-tern-584",
+  "clean_reference_max_abs": {
+    "query": 0.502138614654541,
+    "key": 0.4964989423751831,
+    "value": 0.606589138507843
+  },
+  "models": [
+    {
+      "label": "Clean",
+      "path": "models/wise-tern-584"
+    },
+    {
+      "label": "NAF-Full",
+      "path": "artifacts/sst2-naf-full-no-analog-slicing-layer1-head12/model"
+    }
+  ],
+  "noise_percentages": [
+    0.0,
+    2.0,
+    4.0,
+    6.0,
+    8.0,
+    10.0,
+    12.0,
+    14.0,
+    16.0,
+    18.0,
+    20.0
+  ],
+  "seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "validation_examples": 872,
+  "device": "cpu"
+}

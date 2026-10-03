@@ -1,0 +1,38 @@
+{
+  "source_checkpoint": "models/wise-tern-584",
+  "external_file": "FromSuperT/out_mult_wq_linear_corr.npy",
+  "task": "sst-2",
+  "split": "dev",
+  "examples": 872,
+  "layer_1_based": 1,
+  "head_1_based": 12,
+  "replacement": "external WQ only; WK and WV remain clean software outputs",
+  "external_paired_output_already_x_scale_restored": true,
+  "external_conversion": "Q=(paired[:,0::2]-paired[:,1::2])/(WQ_scale_uS_per_weight*1e-6); paired output already includes the restored X scale",
+  "clean_query_bias_added_after_external_matmul": true,
+  "q_error_metrics_before_bias": {
+    "x_global_scale": 3.7800090312957764,
+    "wq_scale_uS_per_weight": 298.7222962392492,
+    "mae": 0.13121699271347328,
+    "rmse": 0.17018291343977135,
+    "max_abs_error": 1.0919741496702369,
+    "reference_std": 0.6523668255457885,
+    "nrmse_over_reference_std": 0.26086996882067315,
+    "pearson_correlation": 0.9663674545802594
+  },
+  "baseline_clean": {
+    "accuracy": 0.9174311926605505,
+    "eval_loss": 0.23734356503967846
+  },
+  "ideal_wq_replay": {
+    "accuracy": 0.9174311926605505,
+    "eval_loss": 0.23734356722700486
+  },
+  "external_wq_replay": {
+    "accuracy": 0.9174311926605505,
+    "eval_loss": 0.23742877890210634
+  },
+  "ideal_vs_baseline_logit_max_abs_difference": 7.152557373046875e-07,
+  "external_vs_baseline_logit_max_abs_difference": 0.054531924426555634,
+  "external_predictions_changed_vs_baseline": 0
+}
